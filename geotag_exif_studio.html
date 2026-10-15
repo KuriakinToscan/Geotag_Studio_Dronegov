@@ -44,6 +44,8 @@
          preservando os metadados originais (EXIF/GPS/XMP).
        - Processamento em lote com cancelamento, relatório de falhas e saída em
          ZIP (dividido em partes de até 2 GB) ou gravação direta em pasta.
+       - Ajuda embutida (botão "Ajuda" ou F1) e identidade visual DroneGov
+         (paleta azul-marinho, verde e dourado; rodapé "Powered by DroneGov").
 
     MAPA DO CÓDIGO (script principal, ao final do arquivo):
         1  Estado global da aplicação
@@ -1556,7 +1558,7 @@
                     <span>Preservar metadados originais (EXIF/GPS/XMP)</span>
                 </label>
 
-                <!-- Botão de Processamento em Lote com Exportação ZIP -->
+                <!-- Botão de Processamento em Lote (ZIP ou pasta, conforme o destino escolhido) -->
                 <button id="process-batch-btn" type="button" class="btn-primary" disabled>
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -2160,7 +2162,8 @@
 
             /**
              * Trata a recepção de novos arquivos selecionados via input ou arrastados para a tela.
-             * Filtra apenas imagens JPEG válidas e realiza deduplicação com base no nome e tamanho.
+             * Filtra apenas imagens JPEG e ignora duplicados (mesmo caminho relativo, tamanho e
+             * data de modificação; veja fileKey). Bloqueada durante o processamento em lote.
              *
              * @param {FileList|Array<File>} fileList Lista bruta de arquivos
              */
@@ -2407,7 +2410,7 @@
              * Processa:
              * - Tags EXIF padrão (GPS, Data/Hora, Câmera, Fabricante).
              * - Blocos XMP estendidos proprietários DJI (GimbalYawDegree, FlightYawDegree,
-             *   AbsoluteAltitude, RelativeAltitude).
+             *   GimbalPitchDegree, AbsoluteAltitude, RelativeAltitude).
              *
              * Os blocos EXIF ficam no início do JPEG, por isso apenas os primeiros 256 KB são
              * lidos; o arquivo completo só é lido se nenhuma tag for encontrada nesse trecho.
@@ -2447,13 +2450,15 @@
                 let heading = null;
                 let headingSource = 'Nenhum';
 
-                // Prioridade 1: EXIF Padrão GPSImgDirection (direção apontada pela lente)
+                // Ordem de prioridade do azimute: GimbalYawDegree (XMP) > GPSImgDirection (EXIF)
+                // > FlightYawDegree (XMP) > GPSTrack > GPSDestBearing (EXIF).
+                // GPSImgDirection é lido primeiro e substituído pelo GimbalYawDegree, se existir.
                 if (tags.GPSImgDirection !== undefined && tags.GPSImgDirection !== null) {
                     heading = normAngle(Number(tags.GPSImgDirection));
                     headingSource = 'EXIF (GPSImgDirection)';
                 }
 
-                // Prioridade 2 e 3: Inspeção dos Blocos XMP Embutidos (Drones DJI)
+                // Blocos XMP da DJI: azimute do gimbal e da aeronave, altitudes e inclinação
                 let xmpAlt = null;
                 let relAlt = null;
                 let gimbalPitch = null;
@@ -2489,7 +2494,7 @@
                     console.warn("Falha ao efetuar parse do bloco XMP:", e);
                 }
 
-                // Prioridade 4: Fallbacks adicionais de rumo EXIF (GPSTrack, GPSDestBearing)
+                // Últimas alternativas de rumo no EXIF (GPSTrack, GPSDestBearing)
                 if (heading === null && tags.GPSTrack !== undefined) {
                     heading = normAngle(Number(tags.GPSTrack));
                     headingSource = 'EXIF (GPSTrack)';
@@ -3070,13 +3075,10 @@
              * 1. No Canvas 2D do navegador, o ângulo 0 radianos aponta para a direita (+X, 3 horas/Leste).
              * 2. Na navegação e topografia, 0 graus de azimute aponta para o topo (12 horas/Norte).
              * 3. Portanto, para alinhar o azimute com o sistema de coordenadas cartesianas do Canvas,
-             *    descontamos 90 graus: angleRad = (normAngle(direction) - 90) * (PI / 180).
+             *    descontamos 90 graus: angleRad = (azimute - 90) * (PI / 180).
              * 4. A geometria da agulha utiliza o vetor ortogonal (-sin(θ), cos(θ)) multiplicado pela largura
              *    da base para desenhar triângulos perfeitos para os polos Norte (vermelho) e Sul (branco).
              *
-             * @param {CanvasRenderingContext2D} ctx Contexto de renderização 2D
-             * @param {number} w Largura em pixels da imagem
-             * @param {number} h Altura em pixels da imagem
              * MODOS DE LEITURA:
              * - Seta Norte ('north'): para fotos vistas de cima, em que o topo da imagem aponta para o
              *   rumo da tomada. A rosa dos ventos gira -rumo, de modo que o "N" e a ponta vermelha
@@ -3084,6 +3086,9 @@
              * - Rumo da Câmera ('heading'): o "N" fica fixo no topo do mostrador e a ponta vermelha
              *   indica o azimute para onde a câmera apontava (útil em fotos oblíquas e de solo).
              *
+             * @param {CanvasRenderingContext2D} ctx Contexto de renderização 2D
+             * @param {number} w Largura em pixels da imagem
+             * @param {number} h Altura em pixels da imagem
              * @param {Object} exif Metadados extraídos (usa heading e gimbalPitch)
              */
             function drawCompassVector(ctx, w, h, exif) {
@@ -3322,7 +3327,7 @@
                 // Desenha a fotografia original
                 ctx.drawImage(img, 0, 0, w, h);
 
-                // Cálculo de Escala Responsiva de Fonte (baseada na largura da imagem e no slider)
+                // Tamanho da fonte proporcional à largura da foto e ao controle "Tamanho da Fonte"
                 const fontScaleRatio = parseFloat(fontScaleInput.value) / 100;
                 const baseFontSize = Math.max(14, Math.round(w * 0.015 * fontScaleRatio));
                 const lineSpacing = Math.round(baseFontSize * 0.38);
@@ -3423,8 +3428,7 @@
                         bannerY = margin;
                     }
 
-                    // Desenha o fundo da faixa de texto
-                    // Fundo e transparência: padrão global ou ajuste individual da faixa de texto
+                    // Fundo e transparência da faixa de texto: padrão global ou ajuste individual
                     const style = resolveStyle('text');
                     const outline = needsOutline(style);
                     if (hasBackground(style)) {
@@ -3861,7 +3865,7 @@
                     const local = new Uint8Array(30 + name.length);
                     const lv = new DataView(local.buffer);
                     lv.setUint32(0, 0x04034B50, true);   // Assinatura
-                    lv.setUint16(4, 20, true);           // Versão necessária (2.0)
+                    lv.setUint16(4, 20, true);           // Versão da especificação ZIP necessária (2.0)
                     lv.setUint16(6, 0x0800, true);       // Flag: nome em UTF-8
                     lv.setUint16(8, 0, true);            // Método 0 = STORE
                     lv.setUint16(10, dos.time, true);
@@ -4102,7 +4106,8 @@
             });
 
             /**
-             * Processa todas as imagens da fila e gera um arquivo ZIP.
+             * Processa todas as imagens da fila e grava o resultado no destino escolhido:
+             * arquivo(s) ZIP ou diretamente em uma pasta (Chrome/Edge).
              * A fila fica bloqueada durante a execução; fotos com falha são ignoradas e
              * informadas ao final, sem interromper o restante do lote.
              */

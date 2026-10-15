@@ -57,6 +57,7 @@ Todo o aplicativo está em um único arquivo, [`geotag_exif_studio.html`](geotag
 * ⚡ **Processamento em lote:** progresso, cancelamento e relatório de falhas; saída em ZIP (dividido em partes de até 2 GB) ou gravação direta em pasta (Chrome/Edge).
 * 🔍 **Visualizador com zoom e arrasto** (10% a 500%) e pré-visualização leve, com exportação sempre em resolução total.
 * ❓ **Ajuda embutida:** botão **Ajuda** no cabeçalho (ou tecla `F1`) com o guia de uso, disponível sem internet.
+* 🎯 **Identidade DroneGov:** interface nas cores do logotipo (azul-marinho `#1E3B61`, verde `#417E4A` e dourado `#C3AB67`) e rodapé "Powered by DroneGov".
 
 ---
 
@@ -76,7 +77,11 @@ Todo o aplicativo está em um único arquivo, [`geotag_exif_studio.html`](geotag
 
 ## 4. Guia de Uso
 
-O painel de controle à esquerda é organizado em cinco cards, na ordem abaixo. O botão **Ajuda**, no canto superior direito (ou a tecla `F1`), abre um resumo deste guia dentro do próprio app; `Esc` fecha a janela.
+A tela tem quatro áreas:
+- **Cabeçalho:** nome e versão do app e o botão **Ajuda** (ou a tecla `F1`), que abre um resumo deste guia; `Esc` fecha a janela.
+- **Painel de controle** (à esquerda): cinco cards, descritos abaixo, e os botões de exportação.
+- **Visualizador** (à direita): a foto selecionada com a estampa aplicada.
+- **Rodapé:** "Powered by DroneGov", autoria, link para o repositório e licença.
 
 ### 4.1 Carregamento de Imagens
 - **Selecionar Arquivos:** escolhe um ou mais arquivos `.jpg`/`.jpeg`.
