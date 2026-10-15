@@ -86,15 +86,17 @@
             --text-muted: #64748b;     /* Texto secundário e legendas (Slate 500) */
             --text-light: #94a3b8;     /* Texto desativado ou divisores (Slate 400) */
 
-            /* Cores de referência do logotipo do IBAMA */
-            --brand-navy: #15306e;     /* Azul-marinho do quadrado do logotipo */
-            --brand-cyan: #0093dd;     /* Azul-claro da linha d'água do logotipo */
+            /* Cores de referência do logotipo DroneGov */
+            --brand-navy: #1e3b61;     /* Azul-marinho do anel e do drone */
+            --brand-navy-deep: #162e4e;/* Azul-marinho escuro (sombras do anel) */
+            --brand-green: #417e4a;    /* Verde do anel interno */
+            --brand-gold: #c3ab67;     /* Dourado do anel externo */
 
-            /* Paleta Primária de Destaque (azuis harmonizados com o logotipo do IBAMA) */
-            --primary: #1b4a8f;        /* Cor principal de botões e destaques */
-            --primary-hover: #15306e;  /* Estado de hover da cor primária (azul-marinho do logo) */
-            --primary-light: #e8f3fb;  /* Fundo de badges e seleções ativas */
-            --primary-border: #a9d4f0; /* Borda de elementos primários em foco */
+            /* Paleta Primária de Destaque (harmonizada com o logotipo DroneGov) */
+            --primary: #1e3b61;        /* Cor principal de botões e destaques */
+            --primary-hover: #162e4e;  /* Estado de hover da cor primária */
+            --primary-light: #eaf0f6;  /* Fundo de badges e seleções ativas */
+            --primary-border: #b9c7d9; /* Borda de elementos primários em foco */
 
             /* Cores de Feedback e Erro */
             --danger: #ef4444;         /* Vermelho para ações destrutivas e agulha da bússola */
@@ -169,14 +171,15 @@
 
         /* Ícone da marca com gradiente e sombra suave */
         .brand-icon {
-            background: linear-gradient(135deg, var(--brand-navy), var(--brand-cyan));
+            background: linear-gradient(135deg, var(--brand-navy), var(--brand-green));
+            border: 1.5px solid var(--brand-gold);
             color: white;
             padding: 8px;
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(21, 48, 110, 0.25);
+            box-shadow: 0 4px 10px rgba(30, 59, 97, 0.25);
         }
 
         .brand-title {
@@ -241,7 +244,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 14px 20px;
-            background: linear-gradient(135deg, var(--brand-navy), var(--primary));
+            background: linear-gradient(135deg, var(--brand-navy-deep), var(--brand-navy));
+            border-bottom: 3px solid var(--brand-gold);
             color: #ffffff;
         }
 
@@ -653,7 +657,7 @@
         }
 
         .checkbox-label input[type="checkbox"] {
-            accent-color: var(--primary);
+            accent-color: var(--brand-green);
             width: 14px;
             height: 14px;
             cursor: pointer;
@@ -676,7 +680,7 @@
 
         input[type="range"] {
             width: 100%;
-            accent-color: var(--primary);
+            accent-color: var(--brand-green);
             cursor: pointer;
             height: 4px;
             margin-top: 4px;
@@ -830,13 +834,13 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(21, 48, 110, 0.25);
+            box-shadow: 0 2px 4px rgba(30, 59, 97, 0.25);
             width: 100%;
         }
 
         .btn-primary:hover:not(:disabled) {
             background: var(--primary-hover);
-            box-shadow: 0 4px 8px rgba(21, 48, 110, 0.35);
+            box-shadow: 0 4px 8px rgba(30, 59, 97, 0.35);
         }
 
         .btn-primary:disabled {
@@ -907,7 +911,7 @@
         .batch-progress-bar-fill {
             height: 100%;
             width: 0%;
-            background: var(--primary);
+            background: var(--brand-green);
             transition: width 0.2s ease;
         }
 
@@ -925,7 +929,7 @@
            ========================================================================== */
         .preview-workspace {
             flex: 1;
-            background: #0b1a3a;       /* Azul-marinho profundo para destacar as fotografias */
+            background: #0f1f35;       /* Azul-marinho profundo (DroneGov) para destacar as fotografias */
             position: relative;
             overflow: hidden;
             display: flex;
@@ -1051,7 +1055,7 @@
             width: 14px;
             height: 14px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--brand-cyan);
+            border-top-color: var(--brand-gold);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -1089,7 +1093,7 @@
         }
 
         .footer-link:hover {
-            color: var(--brand-cyan);
+            color: var(--brand-green);
         }
 
         .footer-license {
@@ -1440,7 +1444,7 @@
                     <div class="form-group">
                         <span class="form-label">Presets Rápidos</span>
                         <div class="presets-row">
-                            <button id="preset-dark" type="button" class="btn-preset">Azul IBAMA</button>
+                            <button id="preset-dark" type="button" class="btn-preset">DroneGov</button>
                             <button id="preset-light" type="button" class="btn-preset">Light Clean</button>
                             <button id="preset-safety" type="button" class="btn-preset">Segurança</button>
                         </div>
@@ -1473,8 +1477,8 @@
                             <span>Exibir fundo</span>
                         </label>
                         <div class="color-picker-wrap" title="Cor do fundo">
-                            <input id="bg-color" type="color" value="#15306e">
-                            <span id="bg-color-hex" class="color-hex">#15306E</span>
+                            <input id="bg-color" type="color" value="#1e3b61">
+                            <span id="bg-color-hex" class="color-hex">#1E3B61</span>
                         </div>
                     </div>
 
@@ -1917,7 +1921,7 @@
              * Converte uma cor em formato Hexadecimal (#RRGGBB ou #RGB) para a sintaxe rgba(r,g,b,a)
              * utilizada diretamente pela API de Canvas 2D.
              *
-             * @param {string} hex Código hexadecimal de cor (ex: '#15306e')
+             * @param {string} hex Código hexadecimal de cor (ex: '#1e3b61')
              * @param {number} alpha Opacidade normalizada entre 0.0 e 1.0
              * @returns {string} Declaração CSS rgba(r,g,b,a)
              */
@@ -2973,13 +2977,13 @@
             /**
              * Presets visuais rápidos: valores aplicados ao padrão global de cores e opacidade.
              * Elementos com ajuste individual mantêm seus valores (use "Voltar ao padrão" no card).
-             * - Azul IBAMA (padrão): fundo azul-marinho do logotipo com tipografia branca
+             * - DroneGov (padrão): fundo azul-marinho do logotipo com tipografia branca
              * - Light Clean: fundo branco translúcido com tipografia azul-marinho
              * - Segurança: fundo preto de alta opacidade com texto amarelo vivo
              */
             const PRESETS = {
-                dark:   { name: 'Azul IBAMA',    text: '#ffffff', bg: '#15306e', bgOpacity: 0.8,  contentOpacity: 1.0 },
-                light:  { name: 'Light Clean', text: '#15306e', bg: '#ffffff', bgOpacity: 0.85, contentOpacity: 1.0 },
+                dark:   { name: 'DroneGov',    text: '#ffffff', bg: '#1e3b61', bgOpacity: 0.8,  contentOpacity: 1.0 },
+                light:  { name: 'Light Clean', text: '#1e3b61', bg: '#ffffff', bgOpacity: 0.85, contentOpacity: 1.0 },
                 safety: { name: 'Segurança',   text: '#facc15', bg: '#000000', bgOpacity: 0.9,  contentOpacity: 1.0 }
             };
 
