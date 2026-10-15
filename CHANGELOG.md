@@ -12,6 +12,10 @@ Primeira versão do **DroneGov Geotag Studio**, baseada no [Geotag & EXIF Studio
 - **Paleta harmonizada com o logotipo:** azul-marinho `#1E3B61`, verde `#417E4A` e dourado `#C3AB67`. O preset padrão passa a se chamar **DroneGov**.
 - **Rodapé "Powered by DroneGov"** com o logotipo, autoria, link para o repositório e licença.
 
+### Documentação
+- README revisado para a 1.0: identidade DroneGov, áreas da tela, guia de uso, padrões e créditos ao projeto de origem.
+- Comentários do código revisados: prioridade do azimute, detecção de duplicados, destinos do lote (ZIP ou pasta) e documentação da bússola.
+
 ### Recursos herdados do Geotag & EXIF Studio 2.0
 - Estampa de coordenadas GPS, altitude absoluta ou relativa à decolagem, azimute, equipamento, data (`DD/MM/AAAA`) e hora (`HH:MM`).
 - Leitura do EXIF e do XMP da DJI; metadados originais preservados nos arquivos exportados.
