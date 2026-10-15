@@ -1,13 +1,15 @@
-# Geotag & EXIF Studio — Versão 2.0
+# DroneGov Geotag Studio — Versão 1.0
 
-[![Versão](https://img.shields.io/github/v/release/KuriakinToscan/Geotag_Studio?label=vers%C3%A3o&color=15306e)](https://github.com/KuriakinToscan/Geotag_Studio/releases/latest)
-[![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-0093dd)](LICENSE)
-![100% offline](https://img.shields.io/badge/100%25-offline-1b4a8f)
+[![Versão](https://img.shields.io/github/v/release/KuriakinToscan/Geotag_Studio_Dronegov?label=vers%C3%A3o&color=1e3b61)](https://github.com/KuriakinToscan/Geotag_Studio_Dronegov/releases/latest)
+[![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-417e4a)](LICENSE)
+![100% offline](https://img.shields.io/badge/100%25-offline-c3ab67)
 
+> **Powered by DroneGov.** Baseado no [Geotag & EXIF Studio 2.0](https://github.com/KuriakinToscan/Geotag_Studio).
+>
 > **Estampa de telemetria, bússola vetorial e processamento em lote para fotos aéreas e de campo.**
 > Arquivo único • 100% offline • Processamento local • EXIF padrão e XMP da DJI • Metadados preservados na exportação.
 
-### ⬇️ [Baixar a versão mais recente](https://github.com/KuriakinToscan/Geotag_Studio/releases/latest)
+### ⬇️ [Baixar a versão mais recente](https://github.com/KuriakinToscan/Geotag_Studio_Dronegov/releases/latest)
 Na página da versão, baixe o arquivo **`geotag_exif_studio.html`** em *Assets* e abra com duplo clique. Não precisa instalar nada.
 
 ---
@@ -36,9 +38,9 @@ Na página da versão, baixe o arquivo **`geotag_exif_studio.html`** em *Assets*
 
 ## 1. Visão Geral
 
-O **Geotag & EXIF Studio** estampa automaticamente dados técnicos — coordenadas GPS, altitude absoluta ou relativa à decolagem, azimute, data, hora e equipamento — sobre fotografias aéreas de drones (DJI, Autel etc.) e fotos de campo, junto com uma bússola vetorial e o logotipo institucional.
+O **DroneGov Geotag Studio** estampa automaticamente dados técnicos — coordenadas GPS, altitude absoluta ou relativa à decolagem, azimute, data, hora e equipamento — sobre fotografias aéreas de drones (DJI, Autel etc.) e fotos de campo, junto com uma bússola vetorial e o logotipo institucional.
 
-Todo o aplicativo está em um único arquivo, [`geotag_exif_studio.html`](geotag_exif_studio.html): HTML, CSS, JavaScript, a biblioteca de leitura EXIF e o logotipo padrão do IBAMA estão embutidos. Não há instalação, servidor nem acesso à internet.
+Todo o aplicativo está em um único arquivo, [`geotag_exif_studio.html`](geotag_exif_studio.html): HTML, CSS, JavaScript, a biblioteca de leitura EXIF e o logotipo padrão da DroneGov estão embutidos. Não há instalação, servidor nem acesso à internet.
 
 ---
 
@@ -48,7 +50,7 @@ Todo o aplicativo está em um único arquivo, [`geotag_exif_studio.html`](geotag
 * 🛰️ **Metadados EXIF e XMP da DJI:** coordenadas GPS, altitude absoluta (`GPSAltitude` / `AbsoluteAltitude`), altura relativa à decolagem (`RelativeAltitude`), azimute (`GimbalYawDegree`, `GPSImgDirection`, `FlightYawDegree`), inclinação do gimbal (`GimbalPitchDegree`), data/hora e equipamento.
 * 🧭 **Bússola vetorial com dois modos:** *Seta Norte* para fotos vistas de cima (indica onde está o Norte real na imagem) e *Rumo da Câmera* para fotos oblíquas; no modo automático a escolha é feita pela inclinação do gimbal.
 * 🏷️ **Faixa de texto configurável:** título, coordenadas, altitude, azimute, equipamento, data (`DD/MM/AAAA`) e hora (`HH:MM`), cada item podendo ser ligado ou desligado.
-* 🛡️ **Logotipo institucional:** logotipo oficial do IBAMA embutido como padrão, reproduzido sem alterações; também aceita logotipos próprios em PNG ou JPEG.
+* 🛡️ **Logotipo institucional:** logotipo da DroneGov embutido como padrão; o usuário pode trocá-lo por qualquer logotipo em PNG ou JPEG.
 * 🎨 **Fundo e transparência:** padrão global para texto, bússola e logotipo, com ajuste individual por elemento e contorno de legibilidade automático.
 * 📍 **Seis posições** (cantos e centros superior/inferior) para bússola, faixa de texto e logotipo.
 * 🗂️ **Metadados preservados:** os JPEGs exportados mantêm o EXIF (GPS, data, câmera) e o XMP originais, podendo ser reimportados em SIG, Google Earth ou fotogrametria.
@@ -66,7 +68,7 @@ Todo o aplicativo está em um único arquivo, [`geotag_exif_studio.html`](geotag
 - A gravação direta em pasta (seção 4.7) está disponível no Chrome e no Edge.
 
 ### Como abrir
-1. Baixe o arquivo `geotag_exif_studio.html` na [página da versão mais recente](https://github.com/KuriakinToscan/Geotag_Studio/releases/latest) (em *Assets*), ou direto do repositório: [`geotag_exif_studio.html`](geotag_exif_studio.html).
+1. Baixe o arquivo `geotag_exif_studio.html` na [página da versão mais recente](https://github.com/KuriakinToscan/Geotag_Studio_Dronegov/releases/latest) (em *Assets*), ou direto do repositório: [`geotag_exif_studio.html`](geotag_exif_studio.html).
 2. Dê um duplo clique no arquivo. O aplicativo abre pronto para uso.
 3. Na dúvida, clique em **Ajuda** no canto superior direito (ou pressione `F1`).
 
@@ -86,9 +88,9 @@ O painel de controle à esquerda é organizado em cinco cards, na ordem abaixo. 
 - Durante o processamento em lote a fila fica bloqueada.
 
 ### 4.2 Logotipo Institucional
-- **Logotipo padrão:** o app abre com o logotipo oficial do IBAMA, embutido no próprio HTML em base64 com os mesmos pixels do arquivo oficial. Por ser um logotipo oficial, ele é **sempre reproduzido sem alteração de cores ou formas**, apenas redimensionado proporcionalmente.
+- **Logotipo padrão:** o app abre com o logotipo da DroneGov, embutido no próprio HTML em base64 (WebP 1000 px, com transparência ao redor e disco central branco, legível sobre fundos escuros). A mesma imagem aparece no rodapé.
 - **Carregar Logotipo:** substitui o logo por um arquivo `.png` (transparência recomendada) ou `.jpg`.
-- **Remover Logotipo** retira o logo da estampa; **Usar logotipo padrão (IBAMA)** o restaura.
+- **Remover Logotipo** retira o logo da estampa; **Usar logotipo padrão (DroneGov)** o restaura.
 - **Posição** (6 opções) e **Tamanho** (% da menor dimensão da foto).
 - **Aparência:** fundo e transparência seguem o padrão do card 5 ou um ajuste individual (seção 4.5).
 
@@ -111,7 +113,7 @@ O painel de controle à esquerda é organizado em cinco cards, na ordem abaixo. 
 
 ### 4.5 Estilo Visual, Fundo e Transparência
 **Presets rápidos** (alteram apenas o padrão global):
-- **Azul IBAMA** (padrão): fundo azul-marinho do logotipo (`#15306E`) com texto branco.
+- **DroneGov** (padrão): fundo azul-marinho do logotipo (`#1E3B61`) com texto branco.
 - **Light Clean:** fundo branco translúcido com texto azul-marinho.
 - **Segurança:** fundo preto com texto amarelo, para laudos e segurança do trabalho.
 
@@ -144,12 +146,12 @@ O painel de controle à esquerda é organizado em cinco cards, na ordem abaixo. 
 ### 4.8 Configurações Padrão
 | Item | Padrão |
 | :--- | :--- |
-| Logotipo | IBAMA, superior esquerdo, 15% |
+| Logotipo | DroneGov, superior esquerdo, 15% |
 | Bússola | Superior direita, 15%, modo automático, sem selo de ângulo |
 | Faixa de texto | Centro inferior, sem texto superior |
 | Itens da faixa | GPS, equipamento, data e hora ligados; azimute desligado |
 | Altitude | Relativa à decolagem (`ALT REL`) |
-| Estilo | Preset Azul IBAMA: fundo `#15306E` a 80%, texto branco |
+| Estilo | Preset DroneGov: fundo `#1E3B61` a 80%, texto branco |
 | Contorno de legibilidade | Automático |
 | Exportação | ZIP, metadados preservados, JPEG 95% |
 
@@ -208,7 +210,8 @@ O Canvas gera JPEGs sem metadados. Na exportação, os segmentos APP1 de EXIF e 
 ```
 geotag_exif_studio.html
 ├── <head>   Comentário de arquitetura e mapa do código
-├── <style>  CSS com variáveis de design (paleta azul do IBAMA: #15306E e #0093DD)
+├── <style>  CSS com variáveis de design (paleta DroneGov: azul-marinho #1E3B61,
+│            verde #417E4A e dourado #C3AB67)
 ├── <body>   Cabeçalho (com botão Ajuda), painel de controle (cards 1 a 5),
 │            visualizador, janela de ajuda e rodapé
 ├── <script> EXIF-js 2.3.0 (MIT), embutida e minificada
@@ -242,7 +245,6 @@ geotag_exif_studio.html
 ---
 
 ## 8. Limitações Conhecidas
-* **Logotipo do IBAMA sobre fundo azul:** como o logotipo não pode ser alterado, as letras "MMA" (quase pretas) têm pouco contraste sobre o fundo azul-marinho padrão. Para destacá-las, use um fundo claro (preset Light Clean) ou um ajuste individual de fundo claro no card do logotipo.
 * **Lotes muito grandes em ZIP:** as fotos processadas ficam guardadas pelo navegador até o download de cada parte; o navegador pode precisar de espaço temporário equivalente ao tamanho do lote. Para lotes grandes, prefira a gravação em pasta.
 * **Perfis de cor ICC** da foto original não são copiados (o Canvas exporta em sRGB).
 * **Celulares e tablets:** a interface foi pensada para telas de computador (largura mínima recomendada de cerca de 1100 px).
@@ -250,7 +252,7 @@ geotag_exif_studio.html
 ---
 
 ## 9. Histórico de Versões
-As mudanças de cada versão estão em [`CHANGELOG.md`](CHANGELOG.md) e as versões publicadas, com o arquivo para download, em [Releases](https://github.com/KuriakinToscan/Geotag_Studio/releases).
+As mudanças de cada versão estão em [`CHANGELOG.md`](CHANGELOG.md) e as versões publicadas, com o arquivo para download, em [Releases](https://github.com/KuriakinToscan/Geotag_Studio_Dronegov/releases).
 
 ---
 
@@ -260,6 +262,7 @@ As mudanças de cada versão estão em [`CHANGELOG.md`](CHANGELOG.md) e as vers�
 * **GitHub:** [https://github.com/KuriakinToscan](https://github.com/KuriakinToscan)
 * **Licença do código:** [MIT](LICENSE)
 * **EXIF-js 2.3.0:** licença MIT, © Jacob Seidelin.
-* **Logotipo do IBAMA:** marca oficial do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis. Não é coberto pela licença MIT deste projeto; seu uso deve seguir as normas do órgão.
+* **Logotipo DroneGov:** marca do projeto DroneGov.
+* **Projeto de origem:** [Geotag & EXIF Studio](https://github.com/KuriakinToscan/Geotag_Studio), do mesmo autor.
 
 > *Este software é fornecido "como está", sob os termos da licença MIT, livre para uso pessoal, comercial ou institucional.*
