@@ -8,7 +8,7 @@ Primeira versão do **DroneGov Geotag Studio**, baseada no [Geotag & EXIF Studio
 
 ### Identidade DroneGov
 - Nome do aplicativo: **DroneGov Geotag Studio**.
-- **Logotipo DroneGov** embutido como padrão (WebP 1000 px, com transparência); o usuário pode trocá-lo por outro logotipo. O logotipo do IBAMA foi removido.
+- **Logotipo DroneGov** embutido como padrão (WebP 1000 px, com transparência ao redor e disco central branco para ficar legível sobre fundos escuros); o usuário pode trocá-lo por outro logotipo. O logotipo do IBAMA foi removido.
 - **Paleta harmonizada com o logotipo:** azul-marinho `#1E3B61`, verde `#417E4A` e dourado `#C3AB67`. O preset padrão passa a se chamar **DroneGov**.
 - **Rodapé "Powered by DroneGov"** com o logotipo, autoria, link para o repositório e licença.
 

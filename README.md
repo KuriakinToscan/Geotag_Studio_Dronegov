@@ -88,7 +88,7 @@ O painel de controle à esquerda é organizado em cinco cards, na ordem abaixo. 
 - Durante o processamento em lote a fila fica bloqueada.
 
 ### 4.2 Logotipo Institucional
-- **Logotipo padrão:** o app abre com o logotipo da DroneGov, embutido no próprio HTML em base64 (WebP 1000 px, com transparência). A mesma imagem aparece no rodapé.
+- **Logotipo padrão:** o app abre com o logotipo da DroneGov, embutido no próprio HTML em base64 (WebP 1000 px, com transparência ao redor e disco central branco, legível sobre fundos escuros). A mesma imagem aparece no rodapé.
 - **Carregar Logotipo:** substitui o logo por um arquivo `.png` (transparência recomendada) ou `.jpg`.
 - **Remover Logotipo** retira o logo da estampa; **Usar logotipo padrão (DroneGov)** o restaura.
 - **Posição** (6 opções) e **Tamanho** (% da menor dimensão da foto).
