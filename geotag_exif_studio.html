@@ -9,7 +9,7 @@
     <!--
     ================================================================================
     DroneGov Geotag Studio - Versão 1.0
-    Baseado no Geotag & EXIF Studio 2.0 (https://github.com/KuriakinToscan/Geotag_Studio)
+    Baseado no projeto Geotag & EXIF Studio (https://github.com/KuriakinToscan/Geotag_Studio)
     Desenvolvido por: Kuriakin Humberto Toscan
     GitHub: https://github.com/KuriakinToscan
     Licença: MIT
@@ -3865,7 +3865,7 @@
                     const local = new Uint8Array(30 + name.length);
                     const lv = new DataView(local.buffer);
                     lv.setUint32(0, 0x04034B50, true);   // Assinatura
-                    lv.setUint16(4, 20, true);           // Versão da especificação ZIP necessária (2.0)
+                    lv.setUint16(4, 20, true);           // Versão mínima do formato ZIP para extrair (código 20)
                     lv.setUint16(6, 0x0800, true);       // Flag: nome em UTF-8
                     lv.setUint16(8, 0, true);            // Método 0 = STORE
                     lv.setUint16(10, dos.time, true);

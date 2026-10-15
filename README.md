@@ -4,7 +4,7 @@
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-417e4a)](LICENSE)
 ![100% offline](https://img.shields.io/badge/100%25-offline-c3ab67)
 
-> **Powered by DroneGov.** Baseado no [Geotag & EXIF Studio 2.0](https://github.com/KuriakinToscan/Geotag_Studio).
+> **Powered by DroneGov.** Baseado no projeto [Geotag & EXIF Studio](https://github.com/KuriakinToscan/Geotag_Studio).
 >
 > **Estampa de telemetria, bússola vetorial e processamento em lote para fotos aéreas e de campo.**
 > Arquivo único • 100% offline • Processamento local • EXIF padrão e XMP da DJI • Metadados preservados na exportação.

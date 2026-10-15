@@ -4,7 +4,7 @@ Todas as mudanças relevantes do DroneGov Geotag Studio.
 
 ## [1.0] — 2026-10-15
 
-Primeira versão do **DroneGov Geotag Studio**, baseada no [Geotag & EXIF Studio 2.0](https://github.com/KuriakinToscan/Geotag_Studio/releases/tag/2.0). Continua em um único arquivo HTML, 100% offline.
+Primeira versão do **DroneGov Geotag Studio**, baseada no projeto [Geotag & EXIF Studio](https://github.com/KuriakinToscan/Geotag_Studio). Continua em um único arquivo HTML, 100% offline.
 
 ### Identidade DroneGov
 - Nome do aplicativo: **DroneGov Geotag Studio**.
@@ -16,7 +16,7 @@ Primeira versão do **DroneGov Geotag Studio**, baseada no [Geotag & EXIF Studio
 - README revisado para a 1.0: identidade DroneGov, áreas da tela, guia de uso, padrões e créditos ao projeto de origem.
 - Comentários do código revisados: prioridade do azimute, detecção de duplicados, destinos do lote (ZIP ou pasta) e documentação da bússola.
 
-### Recursos herdados do Geotag & EXIF Studio 2.0
+### Recursos herdados do Geotag & EXIF Studio
 - Estampa de coordenadas GPS, altitude absoluta ou relativa à decolagem, azimute, equipamento, data (`DD/MM/AAAA`) e hora (`HH:MM`).
 - Leitura do EXIF e do XMP da DJI; metadados originais preservados nos arquivos exportados.
 - Bússola vetorial com modos Seta Norte e Rumo da Câmera.
