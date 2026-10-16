@@ -1,6 +1,6 @@
 # DroneGov Geotag Studio — Versão 1.0
 
-[![Versão](https://img.shields.io/github/v/release/KuriakinToscan/Geotag_Studio_Dronegov?label=vers%C3%A3o&color=1e3b61)](https://github.com/KuriakinToscan/Geotag_Studio_Dronegov/releases/latest)
+[![Versão 1.0](https://img.shields.io/badge/vers%C3%A3o-1.0-1e3b61)](https://github.com/KuriakinToscan/Geotag_Studio_Dronegov/releases/tag/1.0)
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-417e4a)](LICENSE)
 ![100% offline](https://img.shields.io/badge/100%25-offline-c3ab67)
 
